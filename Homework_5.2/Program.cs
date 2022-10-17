@@ -12,18 +12,33 @@ class Programm
         string[] words = text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         return words;
     }
+    // Первоначальный вариант метода ReversWord
     /// <summary>
     /// Метод инвертирования слов в предложении
     /// </summary>
     /// <returns></returns>
+    //static string[] ReversWord()
+    //{
+    //    string[] words = SplitWords();
+    //    Array.Reverse(words);
+    //    Console.WriteLine("\nВыводим предложение в обратном порядке:\n");
+    //    foreach (string item in words)
+    //    {
+    //      Console.Write(item + " ");
+    //    }
+    //    return words;
+    //}
+
+
+    // Второй вариант метода ReversWord
     static string[] ReversWord()
     {
         string[] words = SplitWords();
-        Array.Reverse(words);
         Console.WriteLine("\nВыводим предложение в обратном порядке:\n");
-        foreach (string item in words)
+        
+        for (int i = words.Length - 1; i >= 0; i--)
         {
-          Console.Write(item + " ");
+            Console.Write(words[i] + " ");
         }
         return words;
     }
