@@ -4,28 +4,26 @@
 class Programm
 {
     /// <summary>
-    /// Метод считывания введенного пользователем предложения
+    /// Метод разделения предложения на отдельные слова
     /// </summary>
     /// <param name="text"></param>
     /// <returns></returns>
     static string[] TakeText(string text)
     {
-        string[] str = { text };
+        string[] str = text.Split(' ');
         return str;
     }
     /// <summary>
     /// Метод вывода отдельных слов
     /// </summary>
     /// <param name="text"></param>
-    static void OutText(string text)
+    static string[] OutText(string [] text)
     {
-        string[] resalt = TakeText(text);
-        resalt = text.Split();
-
-        foreach (string item in resalt)
+        for (int i = 0; i < text.Length; i++)
         {
-            Console.WriteLine($"\n{item}");
+            Console.WriteLine("\n" + text[i]);
         }
+        return text;
     }
 
     // Реализация ввода пользователем предложения и вывод отдельных слов предложения с использованием методf
@@ -33,9 +31,9 @@ class Programm
     {
         Console.WriteLine("Введите предложение:" + "\n");
         string text = Console.ReadLine();
-        TakeText(text);
+        string [] resalt = TakeText(text);
         Console.WriteLine("\nВывод отдельных слов:");
-        OutText(text);
+        OutText(resalt);
     }
 }
 
